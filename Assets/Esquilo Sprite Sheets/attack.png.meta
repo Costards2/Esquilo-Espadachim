@@ -1,67 +1,79 @@
 fileFormatVersion: 2
-guid: fe15958d6d3d20a4294b4875916a5bf2
+guid: ebc8173580e00c14c805aaf23978ab33
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7618027666083201511
-    second: hanging_0
+      213: 827538889749247048
+    second: attack_0
   - first:
-      213: 4734423582871317420
-    second: hanging_1
+      213: -5010287565412364656
+    second: attack_1
   - first:
-      213: 823342914195871658
-    second: hanging_2
+      213: -5463148037355797382
+    second: attack_2
   - first:
-      213: 5989384836451324633
-    second: hanging_3
+      213: -5182820943178688908
+    second: attack_3
   - first:
-      213: 7319864061231341935
-    second: hanging_4
+      213: 7402079830906333199
+    second: attack_4
   - first:
-      213: 254580279750486303
-    second: hanging_5
+      213: 1372099006290288469
+    second: attack_5
   - first:
-      213: -4942235638432103143
-    second: hanging_6
+      213: -5569035362507985257
+    second: attack_6
   - first:
-      213: -1802750031126169164
-    second: hanging_7
+      213: -5789285544991574940
+    second: attack_7
   - first:
-      213: 5828198306148918404
-    second: hanging_8
+      213: 6712529985953942657
+    second: attack_8
   - first:
-      213: -4286413374241952828
-    second: hanging_9
+      213: -3996406334776252399
+    second: attack_9
   - first:
-      213: -7170407164533304492
-    second: hanging_10
+      213: 4918900733310490901
+    second: attack_10
   - first:
-      213: 6352920848958462483
-    second: hanging_11
+      213: -625631833852202795
+    second: attack_11
   - first:
-      213: -1418880995761274026
-    second: hanging_12
+      213: 6012938448837418133
+    second: attack_12
   - first:
-      213: 6859549325757715855
-    second: hanging_13
+      213: 6768331479742512771
+    second: attack_13
   - first:
-      213: -3527967293895785302
-    second: hanging_14
+      213: -1910202648154200349
+    second: attack_14
   - first:
-      213: -1825535294266296497
-    second: hanging_15
+      213: 6361701551263939874
+    second: attack_15
   - first:
-      213: -6932446138712410350
-    second: hanging_16
+      213: 236178773030268874
+    second: attack_16
   - first:
-      213: -8439761654459511022
-    second: hanging_17
+      213: 8584156483031674292
+    second: attack_17
   - first:
-      213: -7380506029257382297
-    second: hanging_18
+      213: 5831363709815067099
+    second: attack_18
   - first:
-      213: 711145230060559972
-    second: hanging_19
+      213: 3332247922641170797
+    second: attack_19
+  - first:
+      213: 6847531941281642472
+    second: attack_20
+  - first:
+      213: 5699846502697279356
+    second: attack_21
+  - first:
+      213: -9090266417039435308
+    second: attack_22
+  - first:
+      213: 8614114879405568219
+    second: attack_23
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -80,11 +92,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -123,6 +136,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -135,6 +149,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -147,6 +162,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -159,13 +175,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hanging_0
+      name: attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -179,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91e33022334574690800000000000000
-      internalID: -7618027666083201511
+      spriteID: 84433595c320c7b00800000000000000
+      internalID: 827538889749247048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_1
+      name: attack_1
       rect:
         serializedVersion: 2
         x: 900
@@ -200,14 +217,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cabe6412a2d04b140800000000000000
-      internalID: 4734423582871317420
+      spriteID: 09e0a014102e77ab0800000000000000
+      internalID: -5010287565412364656
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_2
+      name: attack_2
       rect:
         serializedVersion: 2
         x: 1800
@@ -221,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa7daf8a40a1d6b00800000000000000
-      internalID: 823342914195871658
+      spriteID: a7409061ecffe24b0800000000000000
+      internalID: -5463148037355797382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_3
+      name: attack_3
       rect:
         serializedVersion: 2
         x: 2700
@@ -242,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d2dacf86c19e1350800000000000000
-      internalID: 5989384836451324633
+      spriteID: 476116bdfcbe218b0800000000000000
+      internalID: -5182820943178688908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_4
+      name: attack_4
       rect:
         serializedVersion: 2
         x: 3600
@@ -263,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f61a7d5d491659560800000000000000
-      internalID: 7319864061231341935
+      spriteID: f086148636879b660800000000000000
+      internalID: 7402079830906333199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_5
+      name: attack_5
       rect:
         serializedVersion: 2
         x: 4500
@@ -284,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f19e8556a63788300800000000000000
-      internalID: 254580279750486303
+      spriteID: 55f599ac6ccaa0310800000000000000
+      internalID: 1372099006290288469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_6
+      name: attack_6
       rect:
         serializedVersion: 2
         x: 5400
@@ -305,14 +322,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9158af63fd6a96bb0800000000000000
-      internalID: -4942235638432103143
+      spriteID: 79e6f1408dfc6b2b0800000000000000
+      internalID: -5569035362507985257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_7
+      name: attack_7
+      rect:
+        serializedVersion: 2
+        x: 6300
+        y: 1600
+        width: 900
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4643973487358afa0800000000000000
+      internalID: -5789285544991574940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_8
       rect:
         serializedVersion: 2
         x: 0
@@ -326,14 +364,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b976e7e5685bf6e0800000000000000
-      internalID: -1802750031126169164
+      spriteID: 18c41fc2572b72d50800000000000000
+      internalID: 6712529985953942657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_8
+      name: attack_9
       rect:
         serializedVersion: 2
         x: 900
@@ -347,14 +385,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4842a86fa7be1e050800000000000000
-      internalID: 5828198306148918404
+      spriteID: 1186a85cc99e988c0800000000000000
+      internalID: -3996406334776252399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_9
+      name: attack_10
       rect:
         serializedVersion: 2
         x: 1800
@@ -368,14 +406,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cb23db1fb99384c0800000000000000
-      internalID: -4286413374241952828
+      spriteID: 519516ec722734440800000000000000
+      internalID: 4918900733310490901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_10
+      name: attack_11
       rect:
         serializedVersion: 2
         x: 2700
@@ -389,14 +427,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 453931f9ca89d7c90800000000000000
-      internalID: -7170407164533304492
+      spriteID: 5d0301f692f4157f0800000000000000
+      internalID: -625631833852202795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_11
+      name: attack_12
       rect:
         serializedVersion: 2
         x: 3600
@@ -410,14 +448,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31a97585adb1a2850800000000000000
-      internalID: 6352920848958462483
+      spriteID: 59c1e3b49af327350800000000000000
+      internalID: 6012938448837418133
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_12
+      name: attack_13
       rect:
         serializedVersion: 2
         x: 4500
@@ -431,14 +469,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 653c81d704f1f4ce0800000000000000
-      internalID: -1418880995761274026
+      spriteID: 38e7524ee91fded50800000000000000
+      internalID: 6768331479742512771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_13
+      name: attack_14
       rect:
         serializedVersion: 2
         x: 5400
@@ -452,14 +490,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f851f01b4c3023f50800000000000000
-      internalID: 6859549325757715855
+      spriteID: 3e622cbefc89d75e0800000000000000
+      internalID: -1910202648154200349
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_14
+      name: attack_15
       rect:
         serializedVersion: 2
         x: 6300
@@ -473,56 +511,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa4452c20742a0fc0800000000000000
-      internalID: -3527967293895785302
+      spriteID: 22d732aeadd494850800000000000000
+      internalID: 6361701551263939874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_15
-      rect:
-        serializedVersion: 2
-        x: 7200
-        y: 800
-        width: 900
-        height: 800
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f47b15c62556aa6e0800000000000000
-      internalID: -1825535294266296497
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hanging_16
-      rect:
-        serializedVersion: 2
-        x: 8100
-        y: 800
-        width: 900
-        height: 800
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 217b48d67f00bcf90800000000000000
-      internalID: -6932446138712410350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hanging_17
+      name: attack_16
       rect:
         serializedVersion: 2
         x: 0
@@ -536,14 +532,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21f4af4bd71ffda80800000000000000
-      internalID: -8439761654459511022
+      spriteID: acfe4fdb753174300800000000000000
+      internalID: 236178773030268874
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_18
+      name: attack_17
       rect:
         serializedVersion: 2
         x: 900
@@ -557,14 +553,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7662c77bedc239990800000000000000
-      internalID: -7380506029257382297
+      spriteID: 4bd287b27dc012770800000000000000
+      internalID: 8584156483031674292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hanging_19
+      name: attack_18
       rect:
         serializedVersion: 2
         x: 1800
@@ -578,8 +574,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46e1975a1de7ed900800000000000000
-      internalID: 711145230060559972
+      spriteID: bd191afe56a2de050800000000000000
+      internalID: 5831363709815067099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_19
+      rect:
+        serializedVersion: 2
+        x: 2700
+        y: 0
+        width: 900
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d617f84a4d58e3e20800000000000000
+      internalID: 3332247922641170797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_20
+      rect:
+        serializedVersion: 2
+        x: 3600
+        y: 0
+        width: 900
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e7bb345502570f50800000000000000
+      internalID: 6847531941281642472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_21
+      rect:
+        serializedVersion: 2
+        x: 4500
+        y: 0
+        width: 900
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f1683f13ce91f40800000000000000
+      internalID: 5699846502697279356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_22
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 900
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d993b22bd2e8d180800000000000000
+      internalID: -9090266417039435308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attack_23
+      rect:
+        serializedVersion: 2
+        x: 6300
+        y: 0
+        width: 900
+        height: 800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd03061e7db7b8770800000000000000
+      internalID: 8614114879405568219
       vertices: []
       indices: 
       edges: []
@@ -595,29 +696,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      hanging_0: -7618027666083201511
-      hanging_1: 4734423582871317420
-      hanging_10: -7170407164533304492
-      hanging_11: 6352920848958462483
-      hanging_12: -1418880995761274026
-      hanging_13: 6859549325757715855
-      hanging_14: -3527967293895785302
-      hanging_15: -1825535294266296497
-      hanging_16: -6932446138712410350
-      hanging_17: -8439761654459511022
-      hanging_18: -7380506029257382297
-      hanging_19: 711145230060559972
-      hanging_2: 823342914195871658
-      hanging_3: 5989384836451324633
-      hanging_4: 7319864061231341935
-      hanging_5: 254580279750486303
-      hanging_6: -4942235638432103143
-      hanging_7: -1802750031126169164
-      hanging_8: 5828198306148918404
-      hanging_9: -4286413374241952828
-  spritePackingTag: 
+      attack_0: 827538889749247048
+      attack_1: -5010287565412364656
+      attack_10: 4918900733310490901
+      attack_11: -625631833852202795
+      attack_12: 6012938448837418133
+      attack_13: 6768331479742512771
+      attack_14: -1910202648154200349
+      attack_15: 6361701551263939874
+      attack_16: 236178773030268874
+      attack_17: 8584156483031674292
+      attack_18: 5831363709815067099
+      attack_19: 3332247922641170797
+      attack_2: -5463148037355797382
+      attack_20: 6847531941281642472
+      attack_21: 5699846502697279356
+      attack_22: -9090266417039435308
+      attack_23: 8614114879405568219
+      attack_3: -5182820943178688908
+      attack_4: 7402079830906333199
+      attack_5: 1372099006290288469
+      attack_6: -5569035362507985257
+      attack_7: -5789285544991574940
+      attack_8: 6712529985953942657
+      attack_9: -3996406334776252399
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

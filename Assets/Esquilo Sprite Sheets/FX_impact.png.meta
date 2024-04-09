@@ -1,25 +1,31 @@
 fileFormatVersion: 2
-guid: ad8c7dec5c9f06a4aa1ae604e6eb4243
+guid: 557caffa76812744184bc8ef15b5a813
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1012534219848092737
-    second: FX_slash_0
+      213: -6973198697328102402
+    second: FX_impact_0
   - first:
-      213: 9049668189967047234
-    second: FX_slash_1
+      213: 6567831720869208014
+    second: FX_impact_1
   - first:
-      213: 8322991294866833591
-    second: FX_slash_2
+      213: 7232470676389634330
+    second: FX_impact_2
   - first:
-      213: -6627912827302097682
-    second: FX_slash_3
+      213: -6854657700222219562
+    second: FX_impact_3
   - first:
-      213: 3152946140649009537
-    second: FX_slash_4
+      213: 372773710061520930
+    second: FX_impact_4
   - first:
-      213: -2470494715931847392
-    second: FX_slash_5
+      213: 7013948874564417555
+    second: FX_impact_5
+  - first:
+      213: -5289518056351780900
+    second: FX_impact_6
+  - first:
+      213: 4440291797020000679
+    second: FX_impact_7
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -38,11 +44,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -81,6 +88,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
@@ -93,6 +101,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -105,6 +114,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -117,19 +127,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FX_slash_0
+      name: FX_impact_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1308
-        width: 602
-        height: 654
+        y: 762
+        width: 385
+        height: 762
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb3f60fdd71c2f1f0800000000000000
-      internalID: -1012534219848092737
+      spriteID: ef3ba89fab83a3f90800000000000000
+      internalID: -6973198697328102402
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FX_slash_1
+      name: FX_impact_1
       rect:
         serializedVersion: 2
-        x: 602
-        y: 1308
-        width: 602
-        height: 654
+        x: 385
+        y: 762
+        width: 385
+        height: 762
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24a53268541e69d70800000000000000
-      internalID: 9049668189967047234
+      spriteID: ecf93faf620a52b50800000000000000
+      internalID: 6567831720869208014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FX_slash_2
+      name: FX_impact_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 654
-        width: 602
-        height: 654
+        x: 770
+        y: 762
+        width: 385
+        height: 762
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +190,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b0c43f4c74318370800000000000000
-      internalID: 8322991294866833591
+      spriteID: a1122aac2c5ee5460800000000000000
+      internalID: 7232470676389634330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FX_slash_3
+      name: FX_impact_3
       rect:
         serializedVersion: 2
-        x: 602
-        y: 654
-        width: 602
-        height: 654
+        x: 1155
+        y: 762
+        width: 385
+        height: 762
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +211,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eec4766566ce404a0800000000000000
-      internalID: -6627912827302097682
+      spriteID: 6dacb51a32d5fd0a0800000000000000
+      internalID: -6854657700222219562
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FX_slash_4
+      name: FX_impact_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 602
-        height: 654
+        width: 385
+        height: 762
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +232,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 181b2555fc381cb20800000000000000
-      internalID: 3152946140649009537
+      spriteID: 22842d9d6bb5c2500800000000000000
+      internalID: 372773710061520930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FX_slash_5
+      name: FX_impact_5
       rect:
         serializedVersion: 2
-        x: 602
+        x: 385
         y: 0
-        width: 602
-        height: 654
+        width: 385
+        height: 762
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,8 +253,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0251765252a07bdd0800000000000000
-      internalID: -2470494715931847392
+      spriteID: 318b925075d865160800000000000000
+      internalID: 7013948874564417555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_impact_6
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 0
+        width: 385
+        height: 762
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf23225a5bd796b0800000000000000
+      internalID: -5289518056351780900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FX_impact_7
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 0
+        width: 385
+        height: 762
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a1457c1dd51f9d30800000000000000
+      internalID: 4440291797020000679
       vertices: []
       indices: 
       edges: []
@@ -259,15 +312,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      FX_slash_0: -1012534219848092737
-      FX_slash_1: 9049668189967047234
-      FX_slash_2: 8322991294866833591
-      FX_slash_3: -6627912827302097682
-      FX_slash_4: 3152946140649009537
-      FX_slash_5: -2470494715931847392
-  spritePackingTag: 
+      FX_impact_0: -6973198697328102402
+      FX_impact_1: 6567831720869208014
+      FX_impact_2: 7232470676389634330
+      FX_impact_3: -6854657700222219562
+      FX_impact_4: 372773710061520930
+      FX_impact_5: 7013948874564417555
+      FX_impact_6: -5289518056351780900
+      FX_impact_7: 4440291797020000679
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
