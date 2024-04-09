@@ -8,14 +8,15 @@ public class Player : MonoBehaviour
     [Header("Settings")]
     [SerializeField] float jumpYVelocity = 8f;
     [SerializeField] float runXVelocity = 4f;
-    [SerializeField] float raycastDistance = 0.7f;
-    [SerializeField] LayerMask collisionMask;
+
+    //[SerializeField] float raycastDistance = 0.7f;
+    //[SerializeField] LayerMask collisionMask;
 
     Animator animator;
     Rigidbody2D physics;
     SpriteRenderer sprite;
 
-    enum State { Idle, Walk, Jump, Fall, Attack, Crouch, Climb }
+    enum State { Idle, Walk, Jump, Fall, Attack, Crouch, Climb, Slide, Hang }
 
     State state = State.Idle;
     bool isGrounded = false;
@@ -25,14 +26,21 @@ public class Player : MonoBehaviour
     bool crouchInput = false;
     bool climbInput = false;
     bool isWalled = false;
+    bool canWallJump = true;
 
 
     float horizontalInput = 0f;
 
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+        physics = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
-        // get player input
-        isGrounded = Physics2D.Raycast(this.transform.position, Vector2.down, raycastDistance, collisionMask).collider != null;
+        // isGrounded = Physics2D.Raycast(this.transform.position, Vector2.down, raycastDistance, collisionMask).collider != null;
         jumpInput = Input.GetKey(KeyCode.Space);
         attackInput = Input.GetKey(KeyCode.K);
         crouchInput = Input.GetKey(KeyCode.LeftControl);
@@ -43,19 +51,18 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
 
-        Debug.Log(isWalled);
+        Debug.Log(canWallJump);
 
-        // flip sprite based on horizontal input
-        if (horizontalInput < 0f)
+        // i probably should create a Flip() method and place it only in the actions that you can flip
+        if (horizontalInput < 0f && (state != State.Slide && state != State.Climb && state != State.Hang))
         {
             sprite.flipX = false;
         }
-        else if (horizontalInput > 0f)
+        else if (horizontalInput > 0f && (state != State.Slide && state != State.Climb && state != State.Hang  ))
         {
             sprite.flipX = true;
         }
 
-        // run current state
         switch (state)
         {
             case State.Idle: IdleState(); break;
@@ -65,8 +72,12 @@ public class Player : MonoBehaviour
             case State.Attack: AttackState(); break;
             case State.Crouch: CrouchState(); break;
             case State.Climb: ClimbState(); break;
+            case State.Slide: SlideState(); break;
+            case State.Hang: HangState(); break;
         }
     }
+
+    #region Basic Movement
 
     void IdleState()
     {
@@ -121,18 +132,14 @@ public class Player : MonoBehaviour
             {
                 state = State.Idle;
             }
-            //else if (attackInput) Só rola com animação de Attack enquanto anda
-            //{
-            //    state = State.Attack;
-            //}
             else if (crouchInput)
             {
                 state = State.Crouch;
             }
-        }
-        else if (climbInput && isWalled)
-        {
-            state = State.Climb;
+            else if (climbInput && isWalled)
+            {
+                state = State.Climb;
+            }
         }
         else
         {
@@ -159,9 +166,18 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator WallJumpDelay()
+    {
+        yield return new WaitForSeconds(2);
+        canWallJump = true;
+    }
+
+
     void FallState()
     {
         // actions
+        physics.velocity = (physics.velocity.y * Vector2.up) + (runXVelocity * horizontalInput * Vector2.right);
+
         if (physics.velocity.y > 0f)
         {
             animator.Play("Jump");
@@ -171,12 +187,10 @@ public class Player : MonoBehaviour
             animator.Play("Fall");
         }
 
-        physics.velocity = physics.velocity.y * Vector2.up + runXVelocity * horizontalInput * Vector2.right;
-
         // transitions
         if (isGrounded)
         {
-            if (horizontalInput != 0f)
+            if (horizontalInput != 0f && physics.velocity.y == 0f)
             {
                 state = State.Walk;
             }
@@ -185,7 +199,46 @@ public class Player : MonoBehaviour
                 state = State.Idle;
             }
         }
+        else if(isWalled && this.physics.velocity.y < 0)
+        {
+            state = State.Slide;
+        }
     }
+
+    void CrouchState()
+    {
+        // actions
+        physics.velocity = new Vector2(0, physics.velocity.y);
+        animator.Play("Crouch");
+
+        // transitions
+        if (!crouchInput)
+        {
+            if (isGrounded)
+            {
+                if (jumpInput)
+                {
+                    state = State.Jump;
+                }
+                else if (horizontalInput != 0f)
+                {
+                    state = State.Walk;
+                }
+                else if (horizontalInput == 0f)
+                {
+                    state = State.Idle;
+                }
+            }
+        }
+        else if (!isGrounded)
+        {
+            state = State.Fall;
+        }
+    }
+
+    #endregion
+
+    #region Attack
 
     void AttackState()
     {
@@ -233,63 +286,101 @@ public class Player : MonoBehaviour
         isAttacking = false;
     }
 
-    void CrouchState()
-    {
-        // actions
-        physics.velocity = new Vector2(0, physics.velocity.y);
-        animator.Play("Crouch");
+    #endregion
 
-        // transitions
-        if (!crouchInput)
-        {
-            if (isGrounded)
-            {
-                if (jumpInput)
-                {
-                    state = State.Jump;
-                }
-                else if (horizontalInput != 0f)
-                {
-                    state = State.Walk;  
-                }
-                else if (horizontalInput == 0f)
-                {
-                    state = State.Idle;
-                }
-            }
-        }
-        else if (!isGrounded)
-        {
-            state = State.Fall;
-        }
-    }
+    #region Wall Related
 
     void ClimbState()
     {
-        // actions
         animator.Play("Climb");
+        physics.velocity = runXVelocity * Vector2.up;
 
-        // transitions
-        if (isGrounded)
+        if (!climbInput) 
         {
-            if (jumpInput)
-            {
-                state = State.Jump;
-            }
-            else if (horizontalInput != 0f)
-            {
-                state = State.Walk;
-            }
-            else if (horizontalInput == 0f)
-            {
-                state = State.Idle;
-            }
+            state = State.Slide;
         }
-        else
+        else if (jumpInput && canWallJump == true)
+        {
+            canWallJump = false;
+            StartCoroutine(WallJumpDelay());
+            state = State.Jump;
+        }
+        else if (isGrounded)
+        {
+            state = State.Idle;
+        }
+        else if (!isWalled || (horizontalInput > 0 && sprite.flipX == false || horizontalInput < 0 && sprite.flipX == true))
         {
             state = State.Fall;
         }
     }
+
+    void SlideState()
+    {
+        // actions
+        if(this.physics.velocity.y < 0) 
+        {
+            animator.Play("Slide");
+        }
+        // transitions
+        if(climbInput)
+        {
+            state = State.Climb;
+        }
+        else if(horizontalInput > 0 && sprite.flipX == true || horizontalInput < 0 && sprite.flipX == false)
+        {
+            state = State.Hang;
+        }
+        else if (jumpInput && canWallJump == true)
+        {
+            canWallJump = false;
+            StartCoroutine(WallJumpDelay());
+            state = State.Jump;
+        }
+        else if (isGrounded)
+        {
+            state = State.Idle;
+        }
+        else if (!isWalled || (horizontalInput > 0 && sprite.flipX == false || horizontalInput < 0 && sprite.flipX == true))
+        {
+            state = State.Fall;
+        }
+    }
+
+    void HangState()
+    {
+        // actions
+        physics.velocity = (physics.velocity.y * Vector2.zero);
+        animator.Play("Hang");
+
+        // transitions
+        if (climbInput)
+        {
+            state = State.Climb;
+        }
+        else if (horizontalInput == 0) 
+        {
+            state = State.Slide;
+        }
+        else if (jumpInput && canWallJump == true)
+        {
+            canWallJump = false;
+            StartCoroutine(WallJumpDelay());
+            state = State.Jump;
+        }
+        else if (isGrounded)
+        {
+            state = State.Idle;
+        }
+        else if (!isWalled || (horizontalInput > 0 && sprite.flipX == false || horizontalInput < 0 && sprite.flipX == true))
+        {
+            state = State.Fall;
+        }
+    }
+
+    #endregion
+
+    #region Collision
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -297,6 +388,11 @@ public class Player : MonoBehaviour
         {
             isWalled = true;
         }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -305,13 +401,12 @@ public class Player : MonoBehaviour
         {
             isWalled = false;
         }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 
-    void Awake()
-    {
-        animator = GetComponent<Animator>();
-        physics = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
-    }
+    #endregion
 
 }
