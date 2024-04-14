@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
     [Header("Settings")]
-    [SerializeField] float jumpYVelocity = 8f;
+    [SerializeField] float jumpYVelocity = 15f;
     [SerializeField] float initialVelocity = 4f;
     [SerializeField] float maxVelocity = 10f;
     [SerializeField] float smoothTime = 0.5f;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     bool canWallJump = true;
     bool dashInput = false;
     bool canDash = true;
-    bool isDashing;
+    bool isDashing = false;
 
 
     float horizontalInput = 0f;
@@ -55,23 +55,23 @@ public class Player : MonoBehaviour
         // isGrounded = Physics2D.Raycast(this.transform.position, Vector2.down, raycastDistance, collisionMask).collider != null;
         jumpInput = Input.GetKey(KeyCode.Space);
         attackInput = Input.GetKey(KeyCode.K);
-        crouchInput = Input.GetKey(KeyCode.LeftControl);
+        crouchInput = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
         climbInput = Input.GetKey(KeyCode.L);
-        dashInput = Input.GetKey(KeyCode.LeftShift);
+        dashInput = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         horizontalInput = Input.GetAxisRaw("Horizontal");
     }
 
     void FixedUpdate()
     {
 
-        Debug.Log(state);
+        Debug.Log(isDashing);
 
         // i probably should create a Flip() method and place it only in the actions that you can flip
-        if (horizontalInput < 0f && (state != State.Slide && state != State.Climb && state != State.Hang))
+        if (horizontalInput < 0f && (state != State.Slide && state != State.Climb && state != State.Hang) && state != State.Dash)
         {
             sprite.flipX = false;
         }
-        else if (horizontalInput > 0f && (state != State.Slide && state != State.Climb && state != State.Hang  ))
+        else if (horizontalInput > 0f && (state != State.Slide && state != State.Climb && state != State.Hang) && state != State.Dash)
         {
             sprite.flipX = true;
         }
@@ -132,7 +132,7 @@ public class Player : MonoBehaviour
     void WalkState()
     {
         // actions
-        if(targetVelocity.x < 5f)
+        if(targetVelocity.x < 5f && !crouchInput)
         {
             animator.Play("Walk");
         }
@@ -144,13 +144,25 @@ public class Player : MonoBehaviour
         {
             animator.Play("RunFaster");
         }
-       
-        //physics.velocity = initialVelocity * horizontalInput * Vector2.right;
-        targetVelocity.x = Mathf.SmoothDamp(targetVelocity.x, maxVelocity, ref currentVelocity, smoothTime);
-        physics.velocity = targetVelocity * horizontalInput /* Vector2.right*/;
-        
 
+        if (!crouchInput)
+        {
+            targetVelocity.x = Mathf.SmoothDamp(targetVelocity.x, maxVelocity, ref currentVelocity, smoothTime);
+            physics.velocity = targetVelocity * horizontalInput /* Vector2.right*/;
+        }
+        else if(crouchInput) 
+        {
+            targetVelocity.x = 4f;
+            animator.Play("CrouchAndWalk");
+            physics.velocity = initialVelocity * horizontalInput * Vector2.right;
+        }
+       
         // transitions
+
+        if (dashInput && canDash)
+        {
+            state = State.Dash;
+        }
         if (isGrounded)
         {
             if (jumpInput)
@@ -164,7 +176,7 @@ public class Player : MonoBehaviour
                 targetVelocity.x = initialVelocity;
                 state = State.Idle;
             }
-            else if (crouchInput)
+            else if (crouchInput && horizontalInput == 0)
             {
                 targetVelocity.x = initialVelocity;
                 state = State.Crouch;
@@ -174,11 +186,6 @@ public class Player : MonoBehaviour
                 targetVelocity.x = initialVelocity;
                 state = State.Climb;
             }
-        }
-        else if (dashInput)
-        {
-            targetVelocity.x = initialVelocity;
-            state = State.Dash;
         }
         else
         {
@@ -199,7 +206,7 @@ public class Player : MonoBehaviour
         {
             state = State.Climb;
         }
-        else if (dashInput)
+        else if (dashInput && canDash)
         {
             state = State.Dash;
         }
@@ -231,6 +238,11 @@ public class Player : MonoBehaviour
         }
 
         // transitions
+        if (dashInput && canDash)
+        {
+            targetVelocity.x = initialVelocity;
+            state = State.Dash;
+        }
         if (isGrounded)
         {
             if (horizontalInput != 0f && physics.velocity.y == 0f)
@@ -246,10 +258,7 @@ public class Player : MonoBehaviour
         {
             state = State.Slide;
         }
-        else if (dashInput)
-        {
-            state = State.Dash;
-        }
+       
     }
 
     void CrouchState()
@@ -259,27 +268,20 @@ public class Player : MonoBehaviour
         animator.Play("Crouch");
 
         // transitions
-        if (!crouchInput)
+        if (isGrounded)
         {
-            if (isGrounded)
+            if (jumpInput)
             {
-                if (jumpInput)
-                {
-                    state = State.Jump;
-                }
-                else if (horizontalInput != 0f)
-                {
-                    state = State.Walk;
-                }
-                else if (horizontalInput == 0f)
-                {
-                    state = State.Idle;
-                }
+                state = State.Jump;
             }
-        }
-        else if (dashInput)
-        {
-            state = State.Dash;
+            else if (horizontalInput != 0f)
+            {
+                state = State.Walk;
+            }
+            else if (horizontalInput == 0f && !crouchInput)
+            {
+                state = State.Idle;
+            }
         }
         else 
         {
@@ -290,60 +292,70 @@ public class Player : MonoBehaviour
     void DashState()
     {
         // actions
-        animator.Play("Dash");
-
-        StartCoroutine(DashTempo());
-
-        IEnumerator DashTempo()
+        if (!crouchInput || !isGrounded)
         {
-            canDash = false;
-            isDashing = true;
-            float originalGravity = physics.gravityScale;
-            physics.gravityScale = 0f;
-            physics.velocity = new Vector2(horizontalInput * 14f, 0f);
+            animator.Play("Dash");
+        }
+        else if (crouchInput && isGrounded) //i could creat a new state but I did't feel like It
+        {
+            animator.Play("CrouchAndRoll");
+        }
 
-            yield return new WaitForSeconds(0.35f);
-
-            physics.gravityScale = originalGravity;
-            isDashing = false;
-            gameObject.layer = LayerMask.NameToLayer("Player"); 
-            yield return new WaitForSeconds(1f);
-            canDash = true;
+        if (!isDashing && canDash)
+        {
+            StartCoroutine(DashTempo());
         }
 
         // transitions
-        if (isGrounded)
+        if (!isDashing)
         {
-            if (jumpInput)
+            if (isGrounded)
             {
-                state = State.Jump;
+                if (horizontalInput == 0)
+                {
+                    state = State.Idle;
+                }
+                else if (horizontalInput != 0f)
+                {
+                    state = State.Walk;
+                }
+                else if(crouchInput)
+                {
+                    state = State.Crouch;
+                }
+                else if (attackInput)
+                {
+                    isAttacking = true;
+                    state = State.Attack;
+                }
+                else if (climbInput && isWalled)
+                {
+                    state = State.Climb;
+                }
             }
-            else if(horizontalInput == 0)
+            else
             {
-                state = State.Idle;
-            }
-            else if (horizontalInput != 0f)
-            {
-                state = State.Walk;
-            }
-            else if (attackInput)
-            {
-                isAttacking = true;
-                state = State.Attack;
-            }
-            else if (crouchInput)
-            {
-                state = State.Crouch;
-            }
-            else if (climbInput && isWalled)
-            {
-                state = State.Climb;
+                state = State.Fall;
             }
         }
-        else
-        {
-            state = State.Fall;
-        }
+    }
+
+    IEnumerator DashTempo()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = physics.gravityScale;
+        physics.gravityScale = 0f;
+        physics.velocity = new Vector2(horizontalInput * 14f, 0f);
+
+        yield return new WaitForSeconds(0.35f);
+
+        physics.gravityScale = originalGravity;
+        isDashing = false;
+
+        yield return new WaitForSeconds(1f);
+        
+        canDash = true;
     }
 
     #endregion
