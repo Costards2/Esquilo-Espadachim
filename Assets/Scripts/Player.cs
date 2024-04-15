@@ -245,7 +245,7 @@ public class Player : MonoBehaviour
         }
         if (isGrounded)
         {
-            if (horizontalInput != 0f && physics.velocity.y == 0f)
+            if (horizontalInput != 0f && physics.velocity.y == 0f)// Remove this if
             {
                 state = State.Walk;
             }
