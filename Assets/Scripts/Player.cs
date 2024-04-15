@@ -14,8 +14,6 @@ public class Player : MonoBehaviour
     [SerializeField] float currentVelocity;
     private Vector2 targetVelocity;
 
-    public GameObject slash;
-
     //[SerializeField] float raycastDistance = 0.7f;
     //[SerializeField] LayerMask collisionMask;
 
@@ -368,8 +366,6 @@ public class Player : MonoBehaviour
     {
         // actions
 
-        slash.SetActive(true);
-
         if(isAttacking && Input.GetKey(KeyCode.S)) 
         {
             animator.Play("Attack1");
@@ -410,7 +406,6 @@ public class Player : MonoBehaviour
 
     public void EndOfAttack()
     {
-        slash.SetActive(true);
         isAttacking = false;
     }
 

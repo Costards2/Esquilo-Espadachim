@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         Cursor.visible = false;
     }

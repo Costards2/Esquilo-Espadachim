@@ -1531,7 +1531,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 1.75
   m_Material: {fileID: 6200000, guid: c6a38ef4c1694f643a51a47fc2b86c19, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1605,7 +1605,6 @@ MonoBehaviour:
   maxVelocity: 10
   smoothTime: 0.5
   currentVelocity: 0
-  slash: {fileID: 0}
 --- !u!1 &1964088687
 GameObject:
   m_ObjectHideFlags: 0
