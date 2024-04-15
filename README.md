@@ -3,7 +3,7 @@
 
 # Animator:
 
-![image](https://github.com/Costards2/Esquilo-Espadachim/assets/100092162/c153f3d8-f98d-416e-a22a-fcb48b17e482)
+![image](https://github.com/Costards2/Esquilo-Espadachim/assets/100092162/040c5eb2-714b-4077-814f-79bc472778e8)
 
 # Gameplay:
 
