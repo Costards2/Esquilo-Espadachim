@@ -428,7 +428,7 @@ public class Player : MonoBehaviour
             StartCoroutine(WallJumpDelay());
             state = State.Jump;
         }
-        else if (isGrounded)
+        else if (isGrounded) //remove this If
         {
             state = State.Idle;
         }
