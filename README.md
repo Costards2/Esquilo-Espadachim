@@ -28,6 +28,9 @@ https://youtu.be/_7-acTkDFew
   
   Escalar -> "L"
   Fixar na Parede -> Segurar tecla de movimentação "A" ou "D" (Se a parede estiver a esquerda segurar tecla "A", se ela estiver a direita "D")
+
+  # Diagrama:
+  
   
 
 
