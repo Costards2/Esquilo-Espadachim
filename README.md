@@ -31,6 +31,4 @@ https://youtu.be/_7-acTkDFew
 
   # Diagrama:
   
-  
-
-
+  ![image](https://github.com/Costards2/Esquilo-Espadachim/assets/100092162/3fcef384-6385-421b-94d0-0abe6bf73ff9)
