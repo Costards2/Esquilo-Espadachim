@@ -1,15 +1,15 @@
 # Esquilo Espadachim
   Prova de IA do semestre 2024.1, com a finalidade criar uma simples cena de um jogo digital, utilizando sprites definidos através dos recursos do motor de jogo UNITY
 
-#Animator:
+# Animator:
 
 ![image](https://github.com/Costards2/Esquilo-Espadachim/assets/100092162/c153f3d8-f98d-416e-a22a-fcb48b17e482)
 
-#Gameplay:
+# Gameplay:
 
 
 
-#Controles:
+# Controles:
 
   Pular -> Barra De Espaço 
   
