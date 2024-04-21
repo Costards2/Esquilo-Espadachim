@@ -14,19 +14,25 @@ https://youtu.be/_7-acTkDFew
   Pular -> Barra De Espaço 
   
   Movimentação Para Esquerda -> "A"
+  
   Movimentação Para Direita -> "D"
   
   Ataque -> "K" 
+  
   Ataque Para Cima -> "K" + "W"
+  
   Ataque Para Baixo -> "K" + "S"
   
   Agachar -> Control Direito ou Esquerdo 
+  
   Andar Agachado -> Control Direito ou Esquerdo + "A" ou "D"
+  
   Rolar -> Control Direito ou Esquerdo + Shift Direito ou Esquerdo
 
   Dash -> Shift Direito ou Esquerdo
   
   Escalar -> "L"
+  
   Fixar na Parede -> Segurar tecla de movimentação "A" ou "D" (Se a parede estiver a esquerda segurar tecla "A", se ela estiver a direita "D")
 
   # Diagrama:
