@@ -1,4 +1,4 @@
-EN
+## EN
 
 # Swordsman Squirrel
   AI test of the semester 2024.1, with the purpose of creating a simple scene from a digital game, using sprites defined through the resources of the UNITY game engine
@@ -29,7 +29,7 @@ EN
   
   Hold to the Wall -> Hold down the movement key "A" or "D" (If the wall is on the left, hold down the "A" key, if it is on the right, "D")
 
-PT
+## PT
 
 # Esquilo Espadachim
   Prova de IA do semestre 2024.1, com a finalidade criar uma simples cena de um jogo digital, utilizando sprites definidos através dos recursos do motor de jogo UNITY
